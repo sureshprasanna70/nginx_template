@@ -1,0 +1,14 @@
+server {
+  listen  80;
+
+  location / {
+    root  /usr/share/nginx/html;
+  }
+
+  location /api {
+    resolver 8.8.8.8;
+    proxy_ssl_server_name on;
+    proxy_pass  ${API_HOST}/$1;
+    proxy_set_header  Host $http_host;
+  }
+}
