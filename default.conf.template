@@ -11,4 +11,9 @@ server {
     proxy_pass  ${API_HOST}/$1;
     proxy_set_header  Host $http_host;
   }
+  location = /stub_status {
+      stub_status;
+  }
+  
+
 }
